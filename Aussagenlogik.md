@@ -81,28 +81,33 @@ Implikation
 # Aussagenlogische Begriffe
 
 Tautologie
-:   Alle Belegungen der Variablen sind `wahr`.
+:   Aussagenlogische Formel ist bei allen Belegungen der Variablen `wahr`.
 :   Englisch: Tautology
 :   Symbol: $\top$
 
 Kontradiktion
-:   Alle Belegungen der Variablen sind `falsch`
+:   Aussagenlogische Formel ist bei allen Belegungen der Variablen `falsch`
 :   Englisch: Contradiction, Unsatisfiable
 :   Symbol: $\bot$
 
 Erfüllbar
-:   Mindestens eine Belegung der Variable ist `wahr`
+:   Aussagenlogische Formel ist bei mindestens einer Belegung der Variablen ist `wahr`
 :   English: Satisfiable
 
 Logische Äquivalenz
-:   Zwei aussagenlogische Formeln $r_1, r_2$ sind ident, wenn gilt $r_1 \Leftrightarrow r_2$.
+:   Zwei aussagenlogische Formeln $r_1, r_2$ sind ident, wenn gilt $r_1 \leftrightarrow r_2$.
 :   $r_1$ und $r_2$ müssen dieselbe Wahrheitstabelle haben.
 :   $r_1 \Leftrightarrow r_2$ ist eine Meta-Aussage
-
 
 Meta-Aussage
 :   Eine Aussage über Aussagen
 :   Eine Aussage über die Logik selbst
+
+Aussagenlogische Formel
+:   Ausdrücke die aus elementaren Aussagen und der Verknüpfungen gebildet werden können
+:   - w und f sind aussagenlogische Formeln
+:   - für zwei AF $p$ und $q$, sind auch $p \land q$, $p \lor q$, $p \implies q$, $p \leftrightarrow q$ und $\neg p$ aussagenlogische Formeln
+:   - Keine anderen Gebilde sind AF
 
 # Aussagenlogische Gesetze
 
@@ -188,7 +193,7 @@ Kontradiktionsregel
 | -------------------------------------- | :----------: | :---------: |
 | Notwendige Bedingungen                 |    \cmark    |   \xmark    |
 | Hinreichende Bedingungen               |    \xmark    |   \cmark    |
-| Notwendig und hinreichende Bedingungen |              |             |
+| Notwendig und hinreichende Bedingungen |    \cmark    |   \cmark    |
 
 ![](bedingungen.png)
 

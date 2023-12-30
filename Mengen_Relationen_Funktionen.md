@@ -47,6 +47,7 @@ latex-header:
 > zu einem Ganzen.*
 
 - Die Reihenfolge von Elementen in einer Menge ist irrelevant.
+- Doppelte Elemente sind verboten (alle Elemente müssen unterscheidbar sein)
 - Mengen sind ident, wenn sie dieselben Elemente haben.
 
 Mengen per Angabe
@@ -58,6 +59,7 @@ Alphabet
 
 Worte
 :  Zeichenketten aus mehreren Zeichen aus $\Sigma$.
+:  Symbol für leeres Wort: $\epsilon$
 
 Sprache
 :  Eine Menge aus Worten nennt man eine Sprache und wird als $L$
@@ -148,8 +150,9 @@ Disjunkt
 # Kartesisches Produkt
 
 Tupel
-:  Geordnete Paare
+:  Anneinanderreihung von Objekten
 :  Mehrfachwerte sind erlaubt
+:  Reihenfolge ist relevant
 
 Für zwei Mengen $A$, $B$ nennen wir die Menge
 
@@ -202,6 +205,8 @@ $$
 $R$ ist also das kartesische Produkt $M \times N$ auf das ein Filter
 angewandt wird. (Vergleichbar mit dem `WHERE` statement aus SQL oder
 dem $\sigma$ aus der relationalen Algebra.)
+
+Man kann $R$ auch als eine Zuordnung von Elementen aus $N$ zur (evtl. mehreren) Elementen aus $N$ sehen.
 
 Häufig genutzte Relationen bei Zahlen
 :  $=, \neq, <, >, \leq, \geq$
