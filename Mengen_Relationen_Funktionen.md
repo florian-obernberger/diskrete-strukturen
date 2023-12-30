@@ -206,7 +206,7 @@ $R$ ist also das kartesische Produkt $M \times N$ auf das ein Filter
 angewandt wird. (Vergleichbar mit dem `WHERE` statement aus SQL oder
 dem $\sigma$ aus der relationalen Algebra.)
 
-Man kann $R$ auch als eine Zuordnung von Elementen aus $N$ zur (evtl. mehreren) Elementen aus $N$ sehen.
+Man kann $R$ auch als eine Zuordnung von Elementen aus $N$ zur (evtl. mehreren) Elementen aus $M$ sehen.
 
 Häufig genutzte Relationen bei Zahlen
 :  $=, \neq, <, >, \leq, \geq$
