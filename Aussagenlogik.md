@@ -81,17 +81,17 @@ Implikation
 # Aussagenlogische Begriffe
 
 Tautologie
-:   Alle Belegungen der Variablen sind `wahr`.
+:   Aussagenlogische Formel ist bei allen Belegungen der Variablen `wahr`.
 :   Englisch: Tautology
 :   Symbol: $\top$
 
 Kontradiktion
-:   Alle Belegungen der Variablen sind `falsch`
+:   Aussagenlogische Formel ist bei allen Belegungen der Variablen `falsch`
 :   Englisch: Contradiction, Unsatisfiable
 :   Symbol: $\bot$
 
 Erfüllbar
-:   Mindestens eine Belegung der Variable ist `wahr`
+:   Aussagenlogische Formel ist bei mindestens einer Belegung der Variablen ist `wahr`
 :   English: Satisfiable
 
 Logische Äquivalenz

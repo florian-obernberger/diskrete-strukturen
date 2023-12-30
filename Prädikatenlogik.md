@@ -57,6 +57,10 @@ Gültigkeitsbereich
 - $p(x), q(x) : p(x) \land q(x) \Leftrightarrow (p \land q)(x)
   \Leftrightarrow (p \circ q)(x)$
 
+Aussageform
+:   Aussage wo das Subjekt variabel gelassen wurde
+:   Schreibweise: $p(x)$
+
 All-Aussage
 :   $\forall x \in \N: p(x)$
 :   Negation:
@@ -74,7 +78,8 @@ Freie Variablen
 :   Alle anderen Variablen
 
 (Gewöhnliche) Aussage
-:   Alle Variablen einer Form sind gebunden.
+:   Alle Variablen einer Aussageform sind gebunden.
+:   Daher ist der Wahrheitsgehalt wieder ohne Einsetzen eindeutig bestimmbar
 
 # Variable Prädikate
 
@@ -89,6 +94,9 @@ $$
 
 # Mathematische Sätze
 
+Mathematischer Satz
+:   Eine Deifinition von mathematischem Interesse, von der man weiß, dass sie für einen bestimmten Bereich gültig ist
+
 Logisch Implikation
 :   $p(x) \Rightarrow q(x)$ für jedes $p(x)$ da `wahr` ist muss $q(x)$ auch
     `wahr` sein.
@@ -97,6 +105,7 @@ Logisch Implikation
 Logische Äquivalenz
 :   $p(x) \Leftrightarrow q(x)$ wenn $p$ und $q$ für jede Belegung $x$ aus $X$
     denselben Wert haben.
+
 
 # (Mathematische) Definition
 
