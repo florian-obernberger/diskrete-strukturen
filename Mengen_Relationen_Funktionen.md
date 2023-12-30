@@ -1,5 +1,5 @@
 ---
-title: Prädikatenlogik
+title: Mengen, Relationen, Funktionen
 subtitle: Mehr endlose Schmerzen
 author: Verzweifelte Studierende
 date: 18. Dezember 2023
@@ -440,6 +440,37 @@ $$
 
 damit ist $x = 27$ und $y = -83$. 
 
+## Definitionsmenge, Bild und Urbild
+
+Es sei eine Funktion $f : M \rightarrow N, x \mapsto y$ gegeben, und es
+seien $X \subseteq M$ und $y \in N$ beliebig.
+
+Wir nenne die Mengen
+
+- Def($f$) = Definitionsmenge = alle $x \in M$, die von $f$
+             abgebildet werden.
+- Image($f$) = Bildmenge = Alle $y \in N$ die von $f$ zurückgegeben
+               werden.
+- $f(X)$ = $\{f(x) \mid x \in X\}$ = Bild der Menge $X \subseteq M$ unter $f$.
+- $f^{-1}(y)$ = $\{x \in M \mid f(x) = y\}$ = Urbildmenge.
+   - Intuitiv: Urbild ist die Menge aller x, die von der Funktion auf y abgebildet werden.
+   - Das Urbild einer Menge $Y \subseteq N$ ist definiert
+     als $\\f^{-1}(Y) = \{ x \in M \mid \exists y \in Y: f(x) = y \}$ .
+
+## Eigenschaften von Relationen
+
+| Eigenschaft     | Definition                                     |
+| --------------- | ---------------------------------------------- |
+| rechtseindeutig | $\forall x \in M:                              | f(\{ x \})      | \leq 1$ |
+| linkseindeutig  | $\forall y \in N:                              | f^{-1}(\{ y \}) | \leq 1$ |
+| linkstotal      | alle $x \in M$ besitzen wenigstens ein Bild    |
+| rechtstotal     | alle $y \in N$  besitzen wenigstens ein Urbild |
+
+![](Eigenschaften_Relation.png)
+
+\newpage
+
+
 # Funktionen
 
 Es seien $M, N$ Mengen. Dann bezeichnen wir die Relation $f \subseteq
@@ -460,26 +491,8 @@ $y \in N$ zuordnet (rechtseindeutig).
   f : M \rightarrow N, x \mapsto y
   $$
 
-## Definitionsmenge, Bild und Urbild
 
-Es sei eine Funktion $f : M \rightarrow N, x \mapsto y$ gegeben, und es
-seien $X \subseteq M$ und $y \in N$ beliebig.
-
-Wir nenne die Mengen
-
-- Def($f$) = Definitionsmenge = alle $x \in M$, die von $f$
-             abgebildet werden.
-- Image($f$) = Bildmenge = Alle $y \in N$ die von $f$ zurückgegeben
-               werden.
-- $f(X)$ = Bild = der Menge $X \subseteq M$ unter $f$.
-- $f^{-1}(y)$ = Urbild = Urbildmenge einer Menge $Y \subseteq N$ definiert
-                als $\\f^{-1}(Y) = \{ x \in M \mid \exists y \in Y: f(x) = y \}$ 
-
-\hl{TODO} Urbild / Urbildmenge ist noch falsch
-
-\newpage
-
-### Beispiel zu Funktionen
+## Beispiel zu Funktionen
 
 Man nimmt folgende Funktion $f$ an mit der Signatur $f : \N \rightarrow \N,
 x \mapsto y$
@@ -489,7 +502,7 @@ f(x) = 2 \cdot x
 $$
 
 Dann ist $\N$
-sowohl die Definitions- als auch die Bildmenge.
+sowohl die Definitionsmenge und alle geraden natürlichen Zahlen, die Bildmenge.
 
 Das Bild auf die
 Menge $X \subseteq \N = \{ 1, 2, 3, 4 \}$ ist
@@ -512,11 +525,31 @@ $$
 
 das Urbild zu $Y$.
 
-| Eigenschaft     | Definition                                     |
-| --------------- | ---------------------------------------------- |
-| rechtseindeutig | $\forall x \in M:                              | f(\{ x \})      | \leq 1$ |
-| linkseindeutig  | $\forall y \in N:                              | f^{-1}(\{ y \}) | \leq 1$ |
-| linkstotal      | alle $x \in M$ besitzen wenigstens ein Bild    |
-| rechtstotal     | alle $y \in N$  besitzen wenigstens ein Urbild |
+## Injektive Funktionen
+Es sei $f: M \implies N$ eine Funktion. Wir nennen $f$
 
-\hl{Geendet auf Folie 80}
+- **injektiv:** wenn $f$ linkseindeutig ist, d.h. jedes $y$, hat maximal ein Urbild. Somit gilt $f(a) = f(b) \implies a = b$
+
+- **surjektiv:** wenn $f$ rechtstotal ist, d.h. für jedes $y \in N$ existiert ein $x \in M$, dass auf dieses abbildet
+
+- **bijektiv:** wenn $f$ injektiv und surjektiv ist. D.h. jedes $x \in M$ ist genau einem $y \in N$ zugeordnet und umgekehrt. Somit ist die 
+Umkehrrelation auch eine Funktion (Umkehrfunktion/inverse Funktion).
+
+## Verkettung von Funktionen
+Sind $f: L \implies M$ un d$g: N \implies O$ zwei Funktionen und $Image(f) \subseteq Def(g)$, dann ist
+
+$g \circ f: L \implies O$ mit $(g \circ f)(x) := g(f(x))$ für $x \in L$
+
+als Verkettung von $f$ und $g$ festgelegt.
+
+- Verkettung ist nicht kommutativ
+
+- Verkettung ist assoziativ
+
+### Injektivität und Surjektivität von verketteten Funktionen
+
+- sind f, g injektiv $\Rightarrow g \circ f$ injektiv
+
+- sind f, g surjektiv $\Rightarrow g \circ f$ surjektiv
+
+- sind f, g bijektiv $\Rightarrow g \circ f$ bijektiv
