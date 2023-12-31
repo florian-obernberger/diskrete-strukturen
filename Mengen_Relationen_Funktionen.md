@@ -1,6 +1,6 @@
 ---
 title: Mengen, Relationen, Funktionen
-subtitle: Mehr endlose Schmerzen
+subtitle: Die Schmerzen hören nie auf
 author: Verzweifelte Studierende
 date: 18. Dezember 2023
 toc: true
