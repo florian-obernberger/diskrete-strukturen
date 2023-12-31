@@ -525,7 +525,7 @@ $$
 
 das Urbild zu $Y$.
 
-## Injektive Funktionen
+## Injektive und surjektive Funktionen
 Es sei $f: M \implies N$ eine Funktion. Wir nennen $f$
 
 - **injektiv:** wenn $f$ linkseindeutig ist, d.h. jedes $y$, hat maximal ein Urbild. Somit gilt $f(a) = f(b) \implies a = b$
@@ -553,3 +553,52 @@ als Verkettung von $f$ und $g$ festgelegt.
 - sind f, g surjektiv $\Rightarrow g \circ f$ surjektiv
 
 - sind f, g bijektiv $\Rightarrow g \circ f$ bijektiv
+
+## Funktionen und Ordnungsrelationen
+### Ordnungserhaltende (monotone) Funktion
+Es sei $f: M \implies N$ eine Funktion und $\le_M$, $\le_N$ Ordnungsrelationen auf den Mengen M und N.
+Dann ist f ordnungserhaltend bzw. monoton wachsend, wenn
+$$
+\forall x, y \in M: (x \le_M y) \implies (f(x) \le_N f(y))
+$$
+Analog ist eine Funktion monoton fallend, wenn
+$$
+\forall x, y \in M: (x \le_M y) \implies (f(x) \ge_N f(y))
+$$
+Wobei $\ge_N = \le_N^{-1}$
+
+(Annahme:) Dies lässt sich bezüglich jeder Ordnungsrelation und nicht nur $\le_M$ definieren.
+
+### Monotonie beim Umformen von Ungleichungen
+Eine Ungleichung:
+- bleibt erhalten, wenn auf beiden Seiten eine monoton wachsende Funktion angewandt wird
+- wird umgedreht, wenn auf beiden Seiten eine monoton fallende Funktion angewandt wird
+
+## Wohldefinierte Funktionen
+Eine Funktion $f: X \implies Y$ ist wohldefiniert bezüglich der Äquivalenzrelation $~$, wenn gilt:
+$$
+\forall x, y \in X : x ~ y \implies f(x) = f(y)
+$$
+bzw.
+$$
+\forall x, y \in X : [x] = [y] \implies f([x]) = f([y])
+$$
+d.h. sie liefert für jeden Wert einer Äquivalenzklasse den selben Funktionswert.
+
+# Induktion
+Dient dazu, Behauptungen zu beweisen, die für alle natürlichen Zahlen gelten.
+
+Definition:
+:   Es sei $S(n)$ eine eine Aussageform über $\N$. Wenn der 
+:   **Induktionsanfang:** $S(n_0)$ und der
+:   **Induktionsschritt:** $\forall n \ge n_0 \in \N : (S(n) \Implies S(n + 1))$
+wahr ist, dann ist $S(n)$ für alle $n \ge n_0 \in \N$ wahr.
+
+**Induktionsannahme:** beim Beweisen des Induktionsschritts, darf $S(n), S(n - 1), S(n - 2), ..., S(n_0)$ angenommen werden.
+
+Der Induktionsbeweis basiert auf dem Syllogismus: wenn wir, der Induktionsanfang und den Induktionsschritt bewiesen haben,
+können wir aus $S(n_0)$, $S(n_0 + 1)$ folgern und aus $S(n_0 + 1)$, $S(n_0 + 2)$, usw.
+
+## Wohlordnungsprinzip der natürlichen Zahlen
+Jede nichtleere Teilmende der natürlichen Zahlen hat ein kleinstes Element (Minimum)
+
