@@ -75,22 +75,106 @@ Handschalglemma
 :   In jedem ungerichteten Graph $G = (V, E) gilt $sum_{v \in V} g(v) = 2 |E|$
 :   Dies gilt, da der Grad eines Knotens die Anzahl der Kanten, die an deisem Konten anliegen ist und jede Kante an genau zwei Knoten anliegt. Somit kommen pro Kante 2 zu Summe hinzu.
 
+Knoten ohne Nachbarn, nennt man **isoliert**.
+
 ## Begriffe
 Sei $G = (V, E)$ ein Graph
+
 adjazent
 :   Die Knoten $u, v$ heißen adjazent (benachbart) wenn ${u, v} \in E$
+
 Endknoten
 :   Die Knoten $u, v$ heißen Endknoten der Kante ${u, v}$
+
 inzident
 :   ein Knoten $u$ und eine Kante $e$ heißen inzident, wenn $u$ ein Endknoten von $e$ ist
+
 Weg w
 :   Eine Folge von Knoten aus $V$, die jeweils mit dem nächsten Verbunden sind
 :   $w = (v_0, ..., v_l) mit \{v_i, v_i+1\} \in E$
+
 Pfad w
 :   Ein Weg, bei dem alle Knoten paarweise verschieden sind
-geschlossene Kantenfolge
+
+geschlossener Weg
 :   $v_0 = v_l$
-offene Kantenfolge
+
+offener Weg
 :   $v_0 \neq v_l$
 
+Anfangsknoten
+:   $\alpha(w) := v_0$ vom Weg w
 
+Endknoten
+:   $\omega(w) := v_l$ vom Weg w
+:   Einen Weg/Pfad mit Anfgangsknoten $u$ und Endknoten $v$ nennt man u-v-Weg bzw u-v-Pfad
+
+innere Knoten
+:   alle Knoten vom Weg, außer Anfangs- und Endknoten
+
+Kreis
+:   mit Länge $l \ge 3$ ist eine Folge $(v_0, ..., v_l-1, v_0)$
+:   $(v_0, ..., v_l-1)$ ist hierbei ein Weg in $G$
+:   $\{v_l-1, v_0\}$ ist hierbei eine Kante in $G$
+:   Kreise der Länge 2 sind mit Mehrfachkanten möglich
+:   Kreise der Länge 1 sind mit Schlingen möglich
+
+![Alt text](Arten_Von_Graphen.png)
+
+## Teilgraph
+Ein Graph $H = (V_H, E_H)$ heißt Teilgraph eines Graphen $G = (V_G, E_G)$, wenn 
+$V_H \subseteq V_G$ und $E_H \subseteq V_G$. Also wenn G alle Knoten und Kanten von H enthällt.
+
+Induzierter Teilgraph
+:   ist ein Teilgraph wo zusätzlich gilt, $E_H = E_G \cap \{\{u, v\} \mid u, v \in V_H\}$.
+:   d.h. für alle Knoten die im Teilgraphen enthalten sind, müssen auch alle Kanten zwischen diesen Knoten enthalten sein
+:   Schreibweise: $H = G[V_H]$
+
+Aufspannender Teilgraph
+:   ist ein Teilgraph wo zusätzlich gilt, $V_H = V_G$.
+:   d.h. der Teilgraph enthält alle Knoten, aber nicht zwingend alle Kanten
+
+Zusammenhangskomponente
+:   ein Graph heißt zusammenhängend, wenn für jedes paar $u, v \in V$ ein u-v- Pfad existiert
+:   einen Teilgraphen, der zusammenhängend ist, nennt man Zusammenhangskomponente
+
+# Bäume und Wälder
+Kreisfreier Graph
+:   enhält keinen Kreis als Teilgraph
+
+Baum
+:   ein zusammenhängender Kreisfreier Graph
+:   viele Probleme, die bei allgemeinen Graphen schwer lösbar sind, sind für Bäume leicht lösbar (z.B. kürzerster Weg)
+:   hat keinen bevorzugten Knoten
+:   für alle Bäume gilt $|E| = |V| - 1$
+
+Wald
+:   ein Graph, dessen Zusammenhangskomponenten Bäume sind
+
+Blatt
+:   ein Knoten eines Baumes mit dem Grad 1
+:   jeder Baum mit zwei oder mehr Knoten, hat mindestens zwei Blätter
+:   entfernt man bei einem Baum mit zwei oder mehr Knoten ein Blatt, ist das Ergebnis noch immer ein Baum
+
+Aufspannende Bäume
+:   aufspannende Teilgraphen, die Bäume sind
+
+# Gerichtete Graphen
+Ein gerichteter Graph (oder Digraph) $D = (V, A)$, besteht aus einer Menge $V$ von Knoten (vertices)
+und einer Menge $A \subseteq V \times V$ von gerichteten Kanten (arcs).
+
+Die Kanten verbinden die Knoten in eine Richtung (daher Tupel). Eine gerichtete Kante $(a, b)$ stellt eine Verbindung von a nach b dar und eine gerichtete Kante $(b, a)$, eine von b nach a. Es handelt sich also um zwei unterschiedliche Kanten.
+
+Knoten werden graphisch durch Punkte und Kanten durch Verbindungslinien mit Richtungspfeil repräsentiert.
+Der Graph $V = \{1, 2, 3, 4\} E = \{(1, 2), (2, 1), (2, 3), (2, 4), (3, 4)\}$ könnte z.B. so aussehen:
+
+![](Gerichtete_Graphen_Beispiel.png)
+
+Bei der gerichteten Kante $e = (u, v)$, heißt u **Anfangsknoten** $\alpha(e) := u$ und v **Endknoten** $\omega(e) := v$
+
+## Analoge Definitionen zum ungerichteten Graphen
+Folgende Eigenschaften des gerichteten Graphen lassen sich analog zum ungerichteten definieren.
+Es sei $D = (V, A)$ ein gerichteter Graph.
+
+Induzierter Teilgraph
+:   Ein durch $W \subseteq V$ induzierter Teilgraph ist $D_W = D[W] := (W, A \cap (W \times W))$
