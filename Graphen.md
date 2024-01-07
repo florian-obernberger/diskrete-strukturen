@@ -39,7 +39,7 @@ und einer Menge $E \subseteq \{\{x,y\} \mid x,y \in V \and x \neq y\}$ von Kante
 Die Kanten verbinden die Knoten ohne eine Richtung (daher sind sie zweielementige Mengen und keine Tupel).
 
 Knoten werden graphisch durch Punkte und Kanten durch Verbindungslinien repräsentiert.
-Der Graph $V = \{1, 2, 3, 4\} E = \{\{1, 2\}, \{2, 3\}, \{2, 4\}, \{3, 4\}\}$ könnte z.B. so aussehen:
+Der Graph $V = \{1, 2, 3, 4\}, E = \{\{1, 2\}, \{2, 3\}, \{2, 4\}, \{3, 4\}\}$ könnte z.B. so aussehen:
 
 ![](Graphen_Beispiel.png)
 
@@ -71,8 +71,8 @@ $$
 g(v) := |U(v)|
 $$
 
-Handschalglemma
-:   In jedem ungerichteten Graph $G = (V, E) gilt $sum_{v \in V} g(v) = 2 |E|$
+Handschlagslemma
+:   In jedem ungerichteten Graph $G = (V, E)$ gilt $\sum_{v \in V} g(v) = 2 |E|$
 :   Dies gilt, da der Grad eines Knotens die Anzahl der Kanten, die an deisem Konten anliegen ist und jede Kante an genau zwei Knoten anliegt. Somit kommen pro Kante 2 zu Summe hinzu.
 
 Knoten ohne Nachbarn, nennt man **isoliert**.
@@ -91,16 +91,10 @@ inzident
 
 Weg w
 :   Eine Folge von Knoten aus $V$, die jeweils mit dem nächsten Verbunden sind
-:   $w = (v_0, ..., v_l) mit \{v_i, v_i+1\} \in E$
+:   $w = (v_0, ..., v_l) mit \{v_i, v_{i+1}\} \in E$
 
 Pfad w
 :   Ein Weg, bei dem alle Knoten paarweise verschieden sind
-
-geschlossener Weg
-:   $v_0 = v_l$
-
-offener Weg
-:   $v_0 \neq v_l$
 
 Anfangsknoten
 :   $\alpha(w) := v_0$ vom Weg w
@@ -109,13 +103,21 @@ Endknoten
 :   $\omega(w) := v_l$ vom Weg w
 :   Einen Weg/Pfad mit Anfgangsknoten $u$ und Endknoten $v$ nennt man u-v-Weg bzw u-v-Pfad
 
+geschlossener Weg
+:   Anfangsknoten und Endknoten sind gleich
+:   $v_0 = v_l$
+
+offener Weg
+:   Anfangsknoten und Endknoten sind gleich
+:   $v_0 \neq v_l$
+
 innere Knoten
 :   alle Knoten vom Weg, außer Anfangs- und Endknoten
 
 Kreis
-:   mit Länge $l \ge 3$ ist eine Folge $(v_0, ..., v_l-1, v_0)$
-:   $(v_0, ..., v_l-1)$ ist hierbei ein Weg in $G$
-:   $\{v_l-1, v_0\}$ ist hierbei eine Kante in $G$
+:   mit Länge $l \ge 3$ ist eine Folge $(v_0, ..., v_{l-1}, v_0)$
+:   $(v_0, ..., v_{l-1})$ ist hierbei ein Weg in $G$
+:   $\{v_{l-1}, v_0\}$ ist hierbei eine Kante in $G$
 :   Kreise der Länge 2 sind mit Mehrfachkanten möglich
 :   Kreise der Länge 1 sind mit Schlingen möglich
 
@@ -138,6 +140,8 @@ Zusammenhangskomponente
 :   ein Graph heißt zusammenhängend, wenn für jedes paar $u, v \in V$ ein u-v- Pfad existiert
 :   einen Teilgraphen, der zusammenhängend ist, nennt man Zusammenhangskomponente
 
+\newpage
+
 # Bäume und Wälder
 Kreisfreier Graph
 :   enhält keinen Kreis als Teilgraph
@@ -159,6 +163,8 @@ Blatt
 Aufspannende Bäume
 :   aufspannende Teilgraphen, die Bäume sind
 
+\newpage
+
 # Gerichtete Graphen
 Ein gerichteter Graph (oder Digraph) $D = (V, A)$, besteht aus einer Menge $V$ von Knoten (vertices)
 und einer Menge $A \subseteq V \times V$ von gerichteten Kanten (arcs).
@@ -166,7 +172,7 @@ und einer Menge $A \subseteq V \times V$ von gerichteten Kanten (arcs).
 Die Kanten verbinden die Knoten in eine Richtung (daher Tupel). Eine gerichtete Kante $(a, b)$ stellt eine Verbindung von a nach b dar und eine gerichtete Kante $(b, a)$, eine von b nach a. Es handelt sich also um zwei unterschiedliche Kanten.
 
 Knoten werden graphisch durch Punkte und Kanten durch Verbindungslinien mit Richtungspfeil repräsentiert.
-Der Graph $V = \{1, 2, 3, 4\} E = \{(1, 2), (2, 1), (2, 3), (2, 4), (3, 4)\}$ könnte z.B. so aussehen:
+Der Graph $V = \{1, 2, 3, 4\}, E = \{(1, 2), (2, 1), (2, 3), (2, 4), (3, 4)\}$ könnte z.B. so aussehen:
 
 ![](Gerichtete_Graphen_Beispiel.png)
 
