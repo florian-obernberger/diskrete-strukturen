@@ -528,9 +528,9 @@ das Urbild zu $Y$.
 ## Injektive und surjektive Funktionen
 Es sei $f: M \implies N$ eine Funktion. Wir nennen $f$
 
-- **injektiv:** wenn $f$ linkseindeutig ist, d.h. jedes $y$, hat maximal ein Urbild. Somit gilt $f(a) = f(b) \implies a = b$
+- **injektiv:** wenn $f$ linkseindeutig ist, d.h. jedes $y$, hat maximal ein Urbild. Somit gilt $f(a) = f(b) \implies a = b$. Unterschiedliche Elemente haben also auch unterschiedliche Bilder.
 
-- **surjektiv:** wenn $f$ rechtstotal ist, d.h. für jedes $y \in N$ existiert ein $x \in M$, dass auf dieses abbildet
+- **surjektiv:** wenn $f$ rechtstotal ist, d.h. für jedes $y \in N$ existiert ein $x \in M$, dass auf dieses abbildet. d.h. jedes y hat mindestens ein Urbild.
 
 - **bijektiv:** wenn $f$ injektiv und surjektiv ist. D.h. jedes $x \in M$ ist genau einem $y \in N$ zugeordnet und umgekehrt. Somit ist die 
 Umkehrrelation auch eine Funktion (Umkehrfunktion/inverse Funktion).
@@ -554,6 +554,13 @@ als Verkettung von $f$ und $g$ festgelegt.
 
 - sind f, g bijektiv $\Rightarrow g \circ f$ bijektiv
 
+Grafik Injektiv/surjektiv
+
+### Umkehrung der Verkettung
+$(g \circ f)^{-1} = f^{-1} \circ g^{-1}$
+
+$f \circ f^{-1} = f^{-1} \circ f = id_M$ identische Abbilding = liefert Eingabewert
+
 ## Funktionen und Ordnungsrelationen
 ### Ordnungserhaltende (monotone) Funktion
 Es sei $f: M \implies N$ eine Funktion und $\le_M$, $\le_N$ Ordnungsrelationen auf den Mengen M und N.
@@ -575,7 +582,7 @@ Eine Ungleichung:
 - wird umgedreht, wenn auf beiden Seiten eine monoton fallende Funktion angewandt wird
 
 ## Wohldefinierte Funktionen
-Eine Funktion $f: X \implies Y$ ist wohldefiniert bezüglich der Äquivalenzrelation $~$, wenn gilt:
+Eine Funktion $f: X \implies Y$ ist wohldefiniert (oder repräsentatenunabhängigkeit) bezüglich der Äquivalenzrelation $~$, wenn gilt:
 $$
 \forall x, y \in X : x ~ y \implies f(x) = f(y)
 $$

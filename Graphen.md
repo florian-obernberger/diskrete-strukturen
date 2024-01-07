@@ -62,7 +62,7 @@ Multigraphen
 ![](Spezielle_Graphen.png)
 
 ## Nachbarschaft
-Die Menge der Kanten, die durch eine Kante mit dem Knoten v verbunden ist, ist die Nachbarschaft U(v).
+Die Menge der Kanten, die durch eine Kante mit dem Knoten v verbunden ist, ist die Nachbarschaft U(v). v ist nicht in seiner eigenen Nachbarschaft (außer er hat eine Schlinge)
 $$
 U(v) := \{u \in V \mid {u,v} \in E\}
 $$
@@ -94,7 +94,7 @@ Weg w
 :   $w = (v_0, ..., v_l) mit \{v_i, v_{i+1}\} \in E$
 
 Pfad w
-:   Ein Weg, bei dem alle Knoten paarweise verschieden sind
+:   Ein Weg, bei dem alle Knoten paarweise verschieden sind (keine doppelten Knoten und Kanten)
 
 Anfangsknoten
 :   $\alpha(w) := v_0$ vom Weg w
@@ -116,10 +116,12 @@ innere Knoten
 
 Kreis
 :   mit Länge $l \ge 3$ ist eine Folge $(v_0, ..., v_{l-1}, v_0)$
-:   $(v_0, ..., v_{l-1})$ ist hierbei ein Weg in $G$
+:   $(v_0, ..., v_{l-1})$ ist hierbei ein Pfad in $G$
 :   $\{v_{l-1}, v_0\}$ ist hierbei eine Kante in $G$
+:   Es sind keine doppelten Knoten außer am Ende wieder der Anfangsknoten erlaubt
 :   Kreise der Länge 2 sind mit Mehrfachkanten möglich
 :   Kreise der Länge 1 sind mit Schlingen möglich
+:   **Notitz:** Prof. Rass fragen ob Kreis oder Weg
 
 ![Alt text](Arten_Von_Graphen.png)
 
@@ -184,3 +186,117 @@ Es sei $D = (V, A)$ ein gerichteter Graph.
 
 Induzierter Teilgraph
 :   Ein durch $W \subseteq V$ induzierter Teilgraph ist $D_W = D[W] := (W, A \cap (W \times W))$
+
+Gerichteter Weg w
+:   Eine Folge von Knoten aus $V$, die jeweils eine gerichtete Kante zum nächsten haben
+:   $w = (v_0, ..., v_l) mit (v_i, v_{i+1}) \in A$
+
+Gerichteter Pfad w
+:   Ein gerichteter Weg, bei dem alle Knoten paarweise verschieden sind (keine doppelten Knoten und Kanten)
+
+Gerichteter Kreis c
+:   mit Länge $l \ge 2$ ist eine Folge $(v_0, ..., v_{l-1}, v_0)$
+:   $(v_0, ..., v_{l-1})$ ist hierbei ein gerichteter Pfad in $G$
+:   $(v_{l-1}, v_0)$ ist hierbei eine Kante in $G$
+:   Es sind keine doppelten Knoten außer am Ende wieder der  Anfangsknoten erlaubt
+:   Kreise der Länge 2 sind möglich, da man zwischen zwei Knoten eine Kante hin und eine Kante zurück machen kann.
+:   Kreise der Länge 1 sind mit Schlingen möglich
+
+## Zusammenhang
+Es sei $D = (V, A)$ ein gerichteter Graph. Zwei Knoten heißen stark zusammenhängend $(u ~ v)$, falls in D sowohl ein u-v-Pfad und ein v-u-Pfad existiert. (jeder Knoten ist mit sich selbst stark zusammenhängend).
+
+Wenn $u ~ v$ und $v ~ w$ dann gilt auch $u ~ w$, somit ist starker Zusammenhang transitiv.
+
+Der Graph D heißt:
+
+- stark zusammenhängend,
+:   wenn für jedes Paar $u, v \in D$ ein gerichteter u-v-Pfad existiert.
+:   ein Graph mit nur einem Knoten ist immer stark zusammenhängend.
+
+- schwach zusammenhängend
+:   falls der zugrundeliegende ungerichtete Graph zusammenhängend ist.
+:   mit anderen Worten: wenn kein Knoten bei einem Graph mit $|V| > 1$ keine eingehenden oder ausgehenden Kanten hat.
+
+
+Starke Zusammenhangskomponente:
+:   ein Teilgraph eines gerichteten Graphen, der stark zusammenhängend ist.
+:   die Zusammenhangskomponenten teilen den ungerichteten Graphen in Äquivalenzklassen ein
+
+## Nachbarschaft
+Es sei $D = (V, A)$ ein gerichteter Graph.
+
+Nachfolgermenge:
+:   $N(u) := {v \in V \mid (u,v) \in A}$
+:   alle Knoten auf die eine Kante (kein Pfad!) von u hingeht
+
+
+Vorgängemenge:
+:   $V(u) := {v \in V \mid (v,u) \in A}$
+:   alle Knoten auf die eine Kante (kein Pfad!) auf u hingeht
+
+Außengrad:
+:   $g^+(u) := |N(u)|$
+:   Anzahl der ausgehenden Kanten
+
+Innengrad:
+:   $g^-(u) := |V(u)|$
+:   Anzahl der eingehenden Kanten
+
+Grad:
+:   $g(u) = g^+(u) + g^-(u)$
+:   Außengrad + Innengrad
+
+## Grafische Dartellung von Relationen
+Die Relation $R \subseteq M \times M$ kann als Graph $G = (M, R)$ grafisch dargestellt werden.
+Jedes Tupel der Relation wird somit zu einer gerichteten Kante, zwischen den Werten der Grundmenge.
+
+Einige Eigenschaften von Relationen können so grafisch erkannt werden
+
+- Symmetrie:
+:   alle Knoten, die mit Kanten verbunden sind, müssen in beide Richtungen verbunden sein.
+
+- Reflexivität:
+:   Schlingen an allen Knoten
+
+- Transitivität:
+:   Für alle Knotentripel $a,b,c$, wo a mit b, und b mit c verbunden ist, muss auch eine Kante von a nach c existieren.
+
+
+## Bewerter Graph
+Ein bewerteter Graph $G = (V, E, c)$ besteht aus einem (gerichteten/ungerichteten) Graphen aus $V$ und $E$ und einer Bewertungsfunktion $c: E \implies \R$ (cost). Diese ordnet den Kanten eine (numerische) Bewertung (Gewichte, Längen, Kosten, etc.) zu.
+
+Die Länge $c(G)$ ist die Summe der Bewertungen aller Kanten des Graphen.
+
+
+Ist die Bewertungsfunktion auf Knoten statt Kanten definiert ($c: V \implies \R$), spricht man von eine Graph mit Labels.
+
+### Entfernung
+Die Entfernung d zwischen zwei Knoten u und v, ist die Länge (Summe der Kosten) des minimalen Weges zwischen den Knoten (wobei minimal nicht durch die Anzahl der Kanten bestimmt wird, sondern die Kosten).
+
+
+
+Entfernung d, Länge des kürzesten Wegs zwischen zwei Knoten, sonst unendlich.
+
+Kürzester Weg sp()
+
+Negative Gewichte => können Problemen beim Wegfinden in Kreisem machen
+
+## Distanzgraph
+Bewertungsfunktion auf $\R_0^+$.
+
+Gut zum finden von kürzesten Wegen, da der Entfernung
+
+## Wurzelbäume
+Wurzel gibt implizit richtung vor
+Jeder Knoten hat einen Pfad zur Wurzel
+Zwischen zwei Knoten genau ein Pfad
+Vorgänger: Knoten am
+Nachfolger
+
+## k-ärer, binärer, vollständiger, perfekter WB
+
+Prof. Rass fragen: hat ein Baum mit nur einer Wurzel ein Blatt?
+
+## Graphenisomorphie
+$G_1 = $
+
