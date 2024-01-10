@@ -1,6 +1,6 @@
 ---
-title: Prädikatenlogik
-subtitle: Mehr endlose Schmerzen
+title: Mengen, Relationen, Funktionen
+subtitle: Die Schmerzen hören nie auf
 author: Verzweifelte Studierende
 date: 18. Dezember 2023
 toc: true
@@ -440,6 +440,37 @@ $$
 
 damit ist $x = 27$ und $y = -83$. 
 
+## Definitionsmenge, Bild und Urbild
+
+Es sei eine Funktion $f : M \rightarrow N, x \mapsto y$ gegeben, und es
+seien $X \subseteq M$ und $y \in N$ beliebig.
+
+Wir nenne die Mengen
+
+- Def($f$) = Definitionsmenge = alle $x \in M$, die von $f$
+             abgebildet werden.
+- Image($f$) = Bildmenge = Alle $y \in N$ die von $f$ zurückgegeben
+               werden.
+- $f(X)$ = $\{f(x) \mid x \in X\}$ = Bild der Menge $X \subseteq M$ unter $f$.
+- $f^{-1}(y)$ = $\{x \in M \mid f(x) = y\}$ = Urbildmenge.
+   - Intuitiv: Urbild ist die Menge aller x, die von der Funktion auf y abgebildet werden.
+   - Das Urbild einer Menge $Y \subseteq N$ ist definiert
+     als $\\f^{-1}(Y) = \{ x \in M \mid \exists y \in Y: f(x) = y \}$ .
+
+## Eigenschaften von Relationen
+
+| Eigenschaft     | Definition                                     |
+| --------------- | ---------------------------------------------- |
+| rechtseindeutig | $\forall x \in M:                              | f(\{ x \})      | \leq 1$ |
+| linkseindeutig  | $\forall y \in N:                              | f^{-1}(\{ y \}) | \leq 1$ |
+| linkstotal      | alle $x \in M$ besitzen wenigstens ein Bild    |
+| rechtstotal     | alle $y \in N$  besitzen wenigstens ein Urbild |
+
+![](Eigenschaften_Relation.png)
+
+\newpage
+
+
 # Funktionen
 
 Es seien $M, N$ Mengen. Dann bezeichnen wir die Relation $f \subseteq
@@ -460,26 +491,8 @@ $y \in N$ zuordnet (rechtseindeutig).
   f : M \rightarrow N, x \mapsto y
   $$
 
-## Definitionsmenge, Bild und Urbild
 
-Es sei eine Funktion $f : M \rightarrow N, x \mapsto y$ gegeben, und es
-seien $X \subseteq M$ und $y \in N$ beliebig.
-
-Wir nenne die Mengen
-
-- Def($f$) = Definitionsmenge = alle $x \in M$, die von $f$
-             abgebildet werden.
-- Image($f$) = Bildmenge = Alle $y \in N$ die von $f$ zurückgegeben
-               werden.
-- $f(X)$ = Bild = der Menge $X \subseteq M$ unter $f$.
-- $f^{-1}(y)$ = Urbild = Urbildmenge einer Menge $Y \subseteq N$ definiert
-                als $\\f^{-1}(Y) = \{ x \in M \mid \exists y \in Y: f(x) = y \}$ 
-
-\hl{TODO} Urbild / Urbildmenge ist noch falsch
-
-\newpage
-
-### Beispiel zu Funktionen
+## Beispiel zu Funktionen
 
 Man nimmt folgende Funktion $f$ an mit der Signatur $f : \N \rightarrow \N,
 x \mapsto y$
@@ -489,7 +502,7 @@ f(x) = 2 \cdot x
 $$
 
 Dann ist $\N$
-sowohl die Definitions- als auch die Bildmenge.
+sowohl die Definitionsmenge und alle geraden natürlichen Zahlen, die Bildmenge.
 
 Das Bild auf die
 Menge $X \subseteq \N = \{ 1, 2, 3, 4 \}$ ist
@@ -512,11 +525,87 @@ $$
 
 das Urbild zu $Y$.
 
-| Eigenschaft     | Definition                                     |
-| --------------- | ---------------------------------------------- |
-| rechtseindeutig | $\forall x \in M:                              | f(\{ x \})      | \leq 1$ |
-| linkseindeutig  | $\forall y \in N:                              | f^{-1}(\{ y \}) | \leq 1$ |
-| linkstotal      | alle $x \in M$ besitzen wenigstens ein Bild    |
-| rechtstotal     | alle $y \in N$  besitzen wenigstens ein Urbild |
+## Injektive und surjektive Funktionen
+Es sei $f: M \implies N$ eine Funktion. Wir nennen $f$
 
-\hl{Geendet auf Folie 80}
+- **injektiv:** wenn $f$ linkseindeutig ist, d.h. jedes $y$, hat maximal ein Urbild. Somit gilt $f(a) = f(b) \implies a = b$. Unterschiedliche Elemente haben also auch unterschiedliche Bilder.
+
+- **surjektiv:** wenn $f$ rechtstotal ist, d.h. für jedes $y \in N$ existiert ein $x \in M$, dass auf dieses abbildet. d.h. jedes y hat mindestens ein Urbild.
+
+- **bijektiv:** wenn $f$ injektiv und surjektiv ist. D.h. jedes $x \in M$ ist genau einem $y \in N$ zugeordnet und umgekehrt. Somit ist die 
+Umkehrrelation auch eine Funktion (Umkehrfunktion/inverse Funktion).
+
+## Verkettung von Funktionen
+Sind $f: L \implies M$ un d$g: N \implies O$ zwei Funktionen und $Image(f) \subseteq Def(g)$, dann ist
+
+$g \circ f: L \implies O$ mit $(g \circ f)(x) := g(f(x))$ für $x \in L$
+
+als Verkettung von $f$ und $g$ festgelegt.
+
+- Verkettung ist nicht kommutativ
+
+- Verkettung ist assoziativ
+
+### Injektivität und Surjektivität von verketteten Funktionen
+
+- sind f, g injektiv $\Rightarrow g \circ f$ injektiv
+
+- sind f, g surjektiv $\Rightarrow g \circ f$ surjektiv
+
+- sind f, g bijektiv $\Rightarrow g \circ f$ bijektiv
+
+Grafik Injektiv/surjektiv
+
+### Umkehrung der Verkettung
+$(g \circ f)^{-1} = f^{-1} \circ g^{-1}$
+
+$f \circ f^{-1} = f^{-1} \circ f = id_M$ identische Abbilding = liefert Eingabewert
+
+## Funktionen und Ordnungsrelationen
+### Ordnungserhaltende (monotone) Funktion
+Es sei $f: M \implies N$ eine Funktion und $\le_M$, $\le_N$ Ordnungsrelationen auf den Mengen M und N.
+Dann ist f ordnungserhaltend bzw. monoton wachsend, wenn
+$$
+\forall x, y \in M: (x \le_M y) \implies (f(x) \le_N f(y))
+$$
+Analog ist eine Funktion monoton fallend, wenn
+$$
+\forall x, y \in M: (x \le_M y) \implies (f(x) \ge_N f(y))
+$$
+Wobei $\ge_N = \le_N^{-1}$
+
+(Annahme:) Dies lässt sich bezüglich jeder Ordnungsrelation und nicht nur $\le_M$ definieren.
+
+### Monotonie beim Umformen von Ungleichungen
+Eine Ungleichung:
+- bleibt erhalten, wenn auf beiden Seiten eine monoton wachsende Funktion angewandt wird
+- wird umgedreht, wenn auf beiden Seiten eine monoton fallende Funktion angewandt wird
+
+## Wohldefinierte Funktionen
+Eine Funktion $f: X \implies Y$ ist wohldefiniert (oder repräsentatenunabhängigkeit) bezüglich der Äquivalenzrelation $~$, wenn gilt:
+$$
+\forall x, y \in X : x ~ y \implies f(x) = f(y)
+$$
+bzw.
+$$
+\forall x, y \in X : [x] = [y] \implies f([x]) = f([y])
+$$
+d.h. sie liefert für jeden Wert einer Äquivalenzklasse den selben Funktionswert.
+
+# Induktion
+Dient dazu, Behauptungen zu beweisen, die für alle natürlichen Zahlen gelten.
+
+Definition:
+:   Es sei $S(n)$ eine eine Aussageform über $\N$. Wenn der 
+:   **Induktionsanfang:** $S(n_0)$ und der
+:   **Induktionsschritt:** $\forall n \ge n_0 \in \N : (S(n) \Implies S(n + 1))$
+wahr ist, dann ist $S(n)$ für alle $n \ge n_0 \in \N$ wahr.
+
+**Induktionsannahme:** beim Beweisen des Induktionsschritts, darf $S(n), S(n - 1), S(n - 2), ..., S(n_0)$ angenommen werden.
+
+Der Induktionsbeweis basiert auf dem Syllogismus: wenn wir, der Induktionsanfang und den Induktionsschritt bewiesen haben,
+können wir aus $S(n_0)$, $S(n_0 + 1)$ folgern und aus $S(n_0 + 1)$, $S(n_0 + 2)$, usw.
+
+## Wohlordnungsprinzip der natürlichen Zahlen
+Jede nichtleere Teilmende der natürlichen Zahlen hat ein kleinstes Element (Minimum)
+
